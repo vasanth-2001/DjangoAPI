@@ -5,11 +5,17 @@ from .serializers import BookSerializer
 from rest_framework import status,parsers
 from rest_framework.exceptions import APIException
 from rest_framework.response import Response
+from rest_framework import permissions
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.decorators import action
+
 
 # Create your views here.
 class BookViewSet(ModelViewSet):
     queryset = BookApi.objects.all()
     serializer_class = BookSerializer
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
     
 
     def get_serializer_class(self):
