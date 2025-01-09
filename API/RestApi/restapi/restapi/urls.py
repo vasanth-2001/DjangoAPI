@@ -50,6 +50,7 @@ urlpatterns = [
     path('api/token/refresh/',swagger_auto_schema(methods=['post'],security=[])(TokenRefreshView.as_view())),
 
     path("api/author/",include('author.urls')),
+    # path("",include('author.urls')),
     path("api/book/",include('book.urls')),
     path('api/user/', include('user.urls')),
 
