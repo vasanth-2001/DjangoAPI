@@ -13,6 +13,7 @@ from rest_framework.decorators import action
 class AuthorViewSet(ModelViewSet):
     queryset = RestApi.objects.all()
     serializer_class = AuthorSerializer
+    parser_classes=(parsers.FormParser,parsers.MultiPartParser,parsers.FileUploadParser)
     authentication_classes = [JWTAuthentication]
     permission_classes = [permissions.IsAuthenticated]
     
